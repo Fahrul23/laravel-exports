@@ -22,11 +22,6 @@ class BarangController extends Controller
         $date_end = $request->date_end;
         $barang = $barang->whereDate('created_at', '>=', $date_start);
         $barang = $barang->whereDate('created_at', '<=', $date_end)->get();
-        // $barang = DB::table('barang')
-        //         ->select('nama_barang','kategori','harga','stok','created_at')
-        //         ->where('created_at','>=',$request->date_start)
-        //         ->where('created_at','<=',$request->date_end)
-        //         ->get();
         return view('barang',compact('barang','date_start','date_end'));
     }
     public function export_excel(Request $request){

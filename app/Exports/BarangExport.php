@@ -29,7 +29,7 @@ class BarangExport implements WithHeadings,WithStyles,WithColumnWidths,FromArray
     public function headings(): array
     {
         return [
-            [' ', 'LAPORAN DATA BARANG BULANAN'],
+            [' ', 'LAPORAN DATA ASSET BARANG PERUSAHAAN'],
             [' ', 'BPJS KETENAGAKERJAAN BOGOR'],
             [' ', 'Tahun 2020/2021'],
             [' '],
@@ -46,7 +46,7 @@ class BarangExport implements WithHeadings,WithStyles,WithColumnWidths,FromArray
             'C' => 18,            
             'D' =>20,            
             'E' =>18,            
-            'F' =>25,            
+            'F' =>23,            
         ];
     }
     public function styles(Worksheet $sheet)
