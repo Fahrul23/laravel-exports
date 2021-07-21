@@ -18,7 +18,6 @@
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
     <!-- Bootstrap core CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
     
@@ -52,8 +51,24 @@
         .btn-filter{
             margin-top: 22px !important;
         }
+        .btn-success{
+            color: #fff !important;
+            background-color: #198754 !important;
+            border-color: #198754 !important;
+            border-radius: 0.25rem;
+        }
+        .btn-danger{
+            color: #fff !important;
+            background-color: #dc3545 !important;
+            border-color: #dc3545 !important;
+            border-radius: 0.25rem;
+        }
+        i{
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
         </style>
-    <title>Hello, world!</title>
+    <title>Laravel Export PDF & EXCEL</title>
   </head>
   <body>
     <div class="container">
@@ -61,8 +76,16 @@
             <div class="col-lg-12">
                 <div class="content mt-4 mb-3 d-flex justify-content-between align-items-center" >
                     <div class="export">
-                        <a class="btn btn-success" href="#" onclick="$(this).find('form').submit()">Export To Excel
+                        <a class="btn btn-success" href="#" onclick="$(this).find('form').submit()"><i class="far fa-file-excel"></i>Export To Excel
                             <form action="{{route('barang.export.excel')}}" method="POST">
+                            @csrf
+                            <input type="hidden" name="date_start" class="form-control" value="{{ request()->get('date_start') }}">
+                            <input type="hidden" name="date_end" class="form-control" value="{{ request()->get('date_end') }}">
+                            </form>
+                        </a>
+                        
+                        <a class="btn btn-danger" href="#" onclick="$(this).find('form').submit()"><i class="far fa-file-pdf"></i>Export To PDF
+                            <form action="{{route('barang.export.pdf')}}" method="POST">
                             @csrf
                             <input type="hidden" name="date_start" class="form-control" value="{{ request()->get('date_start') }}">
                             <input type="hidden" name="date_end" class="form-control" value="{{ request()->get('date_end') }}">

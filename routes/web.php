@@ -17,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [BarangController::class,'index'])->name('barang.index');
 Route::post('/', [BarangController::class,'filter'])->name('barang.filter');
 Route::post('/export_excel', [BarangController::class,'export_excel'])->name('barang.export.excel');
+Route::post('/export_pdf', [BarangController::class,'export_pdf'])->name('barang.export.pdf');
